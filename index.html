@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seo Tracker</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seo Tracker</title>
+  <link rel="stylesheet" href="index.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP6L353ZQ6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NP6L353ZQ6');
+  </script>
 </head>
 <body>
-    <h1>Welcome to IndieLoot</h1>
-    <h3>A site made for SEO analytics and practice, all while teaching the art of computer science, through web development, servers, hardware, and keeping my audience entertained with games and giveaways.</h3>
+  <h1>Welcome to IndieLoot</h1>
+  <h3>A site made for SEO analytics and practice, all while teaching the art of computer science, through web development, servers, hardware, and keeping my audience entertained with games and giveaways.</h3>
 
-    <h2>What's coming:</h2>
-    <ul>
-        <li>📈 SEO growth experiments</li>
-        <li>🛠️ Behind-the-scenes on building this site from scratch</li>
-        <li>🎮 Games and giveaways</li>
-    </ul>
+  <h2>What's coming:</h2>
+  <ul>
+    <li>📈 SEO growth experiments</li>
+    <li>🛠️ Behind-the-scenes on building this site from scratch</li>
+    <li>🎮 Games and giveaways</li>
+  </ul>
 
-    <h1>Do me a HUGE favor and click the button below to let me know you were here!</h1>
-    <button onclick="trackClick(); window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">
-        I WAS HERE!
-    </button>
+  <h1>Do me a HUGE favor and click the button below to let me know you were here!</h1>
+  <button id="rickrollButton">
+    I WAS HERE!
+  </button>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP6L353ZQ6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-NP6L353ZQ6');
-    </script>
-    <script>
-    /* To track the rickroll button */
-    function trackClick() {
-        gtag('event', 'rickroll_click',
-        {
+  <script>
+    window.onload = function () {
+      const btn = document.getElementById('rickrollButton');
+      btn.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'rickroll_click', {
             event_category: 'engagement',
             event_label: 'Rickroll Button'
-        });
-    }
-    </script>
+          });
+        } else {
+          console.error('gtag is not defined!');
+        }
+
+        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+      });
+    };
+  </script>
 </body>
 </html>

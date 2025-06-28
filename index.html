@@ -14,6 +14,16 @@
 
         gtag('config', 'G-NP6L353ZQ6');
     </script>
+    <script>
+    /* To track the rickroll button */
+    function trackClick() {
+        gtag('event', 'rickroll_click',
+        {
+            event_category: 'engagement',
+            event_label: 'Rickroll Button'
+        });
+    }
+    </script>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -28,7 +38,7 @@
     </ul>
 
     <h1>Do me a HUGE favor and click the button below to let me know you were here!</h1>
-    <button onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">
+    <button onclick="trackClick(); window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">
         I WAS HERE!
     </button>
 </body>
